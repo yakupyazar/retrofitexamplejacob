@@ -26,10 +26,12 @@ class MainActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<List<Hotels>>?, response: Response<List<Hotels>>?) {
                       val hotellist=ArrayList(response?.body())
                         Toast.makeText(this@MainActivity,"Otel Listesi Çekildi",Toast.LENGTH_SHORT).show()
+                       // gelen response'u modelimize aktarıp burada bir adapter'a bağladık.ç
                         rv_hotels_list.adapter=HotelsAdapter(hotellist,getApplicationContext())
                     }
 
                     override fun onFailure(call: Call<List<Hotels>>?, t: Throwable?) {
+                        //herhangi bir hatayla karşılaşırsa
                         Toast.makeText(this@MainActivity,"Otel Listesi Alınamadı",Toast.LENGTH_SHORT).show()
                     }
 
